@@ -5,7 +5,7 @@ export default class TodoList extends Component {
     render() {
         return (
             <React.Fragment>
-                <h3 className="ml-3 mt-3">All Todos</h3>
+                <h3 className="ml-3 mt-3">Todo List</h3>
                 <div className="row">
                     <div className="col-md-12">
                         {
