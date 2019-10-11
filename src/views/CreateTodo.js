@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import InputBox from "../components/InputBox";
 import RadioInput from "../components/RadioInput";
+import Button from "../components/Button";
 
 export default class CreateTodo extends Component {
 
@@ -32,21 +33,23 @@ export default class CreateTodo extends Component {
   render() {
     const { responsible, description, priority } = this.state;
     return (
-      <div style={{ marginTop: 10 }}>
-        <h3>Create New Todo</h3>
-        <form onSubmit={this.onSubmit}>
-          <InputBox onChangeHandler={this.onInputChangeHandler} name="description" value={description} label="Description" />
-          <InputBox onChangeHandler={this.onInputChangeHandler} name="responsible" value={responsible} label="Responsible" />
-          <div className="form-group">
-            <RadioInput onChangeHandler={this.onInputChangeHandler} name="priority" value="Low" label="Low" checked={priority === 'Low'} />
-            <RadioInput onChangeHandler={this.onInputChangeHandler} name="priority" value="Medium" label="Medium" checked={priority === 'Medium'} />
-            <RadioInput onChangeHandler={this.onInputChangeHandler} name="priority" value="High" label="High" checked={priority === 'High'} />
+      <React.Fragment>
+        <h3 className="ml-3 my-3">Create New Todo</h3>
+        <div className="row">
+          <div className="col-md-12 mx-3 mt-3">
+            <form onSubmit={this.onSubmit}>
+              <InputBox onChangeHandler={this.onInputChangeHandler} name="description" value={description} label="Description" />
+              <InputBox onChangeHandler={this.onInputChangeHandler} name="responsible" value={responsible} label="Responsible" />
+              <div className="form-group">
+                <RadioInput onChangeHandler={this.onInputChangeHandler} name="priority" value="Low" label="Low" checked={priority === 'Low'} />
+                <RadioInput onChangeHandler={this.onInputChangeHandler} name="priority" value="Medium" label="Medium" checked={priority === 'Medium'} />
+                <RadioInput onChangeHandler={this.onInputChangeHandler} name="priority" value="High" label="High" checked={priority === 'High'} />
+              </div>
+              <Button value="Create Todo" />
+            </form>
           </div>
-          <div className="form-group">
-            <input type="submit" value="Create Todo" className="btn btn-primary" />
-          </div>
-        </form>
-      </div>
+        </div>
+      </React.Fragment>
     )
   }
 }
